@@ -1,19 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FiLogIn } from 'react-icons/fi';
 import { Container, Content, Background } from './styles';
-import logoimg from '../../assets/Logo.svg';
-import backgroundimg from '../../assets/sign-in-background.png';
+import logoImg from '../../assets/Logo.svg';
 
 const SignIn: React.FC = () => (
     <Container>
         <Content>
-            <img src={logoimg} alt="Logo escrito o texto Gobarber" />
-            <p>Faça seu Logon</p>
-            <input type="text" />
-            <input type="text" />
+            <img src={logoImg} alt="Logo escrito o texto Gobarber" />
+            <form>
+                <h1>Faça seu Login</h1>
+                <input placeholder="E-mail" />
+                <input placeholder="Senha" />
+                <button type="submit">Entrar</button>
+                <Link to="/">
+                    <p>Esqueci minha senha</p>
+                </Link>
+            </form>
+            <Link to="/">
+                <p className="register">
+                    <FiLogIn />
+                    Criar Conta
+                </p>
+            </Link>
         </Content>
-        <Background>
-            <img src={backgroundimg} alt="Pessoa cortando cabelo" />
-        </Background>
+        <Background />
     </Container>
 );
 
