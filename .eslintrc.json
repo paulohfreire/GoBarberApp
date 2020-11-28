@@ -26,10 +26,13 @@
         "prettier"
     ],
     "rules": {
-        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent": ["warn", 4],
         "react-hooks/rules-of-hooks": "error",
+        "react/jsx-one-expression-per-line": "off",
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
         "import/prefer-default-export": "off",
         "camelcase": "off",
         "@typescript-eslint/ban-types": "off",
@@ -42,7 +45,7 @@
             }
          ],
         "no-use-before-define": "off",
-        "prettier/prettier": "error"
+        "prettier/prettier": "warn"
     },
         "settings": {
         "import/resolver": {
