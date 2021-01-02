@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent-props */
 import React, { useEffect } from 'react';
 import {
     FiAlertCircle,
@@ -35,9 +36,9 @@ const Toast: React.FC<ToastProps> = ({ message, style }) => {
 
     return (
         <Container
-          type={message.type}
-          hasDescription={!!message.description}
-          style={style}
+            type={message.type}
+            hasDescription={Number(!!message.description)}
+            style={style}
         >
             {icons[message.type || 'info']}
             <div>
