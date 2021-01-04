@@ -117,6 +117,7 @@ const Profile: React.FC = () => {
         [addToast, history, updateUser],
     );
 
+    // Função para alterar o avatar
     const handleAvatarChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.files) {
@@ -156,6 +157,7 @@ const Profile: React.FC = () => {
                     }}
                     onSubmit={handleSubmit}
                 >
+                    {/* Elemento de imagem-avatar e como alterar a foto  */}
                     <AvatarInput>
                         <img src={user.avatar_url} alt={user.name} />
                         <label htmlFor="avatar">
