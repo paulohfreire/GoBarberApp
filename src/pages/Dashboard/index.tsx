@@ -7,6 +7,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import DayṔicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { FiClock, FiPower } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import {
     Container,
     Header,
@@ -89,7 +90,6 @@ const Dashboard: React.FC = () => {
             });
 
             setAppointments(appointmentsFormatted);
-            console.log(response.data);
         });
     }, [selectedDate]);
 
@@ -144,7 +144,9 @@ const Dashboard: React.FC = () => {
                         <img src={user.avatar_url} alt={user.name} />
                         <div>
                             <span>Bem-vindo,</span>
-                            <strong>{user.name}</strong>
+                            <Link to="/profile">
+                                <strong>{user.name}</strong>
+                            </Link>
                         </div>
                     </Profile>
                     <button type="button" onClick={signOut}>
@@ -162,13 +164,16 @@ const Dashboard: React.FC = () => {
                     </p>
                     {isToday(selectedDate) && nextAppointment && (
                         <NextAppointment>
-                            <strong>Atendimento a seguir</strong>
+                            <strong>Agendamento a seguir</strong>
                             <div>
-                                <img src={user.avatar_url} alt={user.name} />
-                                <strong>{user.name}</strong>
+                                <img
+                                    src={nextAppointment.user.avatar_url}
+                                    alt={nextAppointment.user.name}
+                                />
+                                <strong>{nextAppointment.user.name}</strong>
                                 <span>
                                     <FiClock />
-                                    08:00
+                                    {nextAppointment.hourFormatted}
                                 </span>
                             </div>
                         </NextAppointment>
